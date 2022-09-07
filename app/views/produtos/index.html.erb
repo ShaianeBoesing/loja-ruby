@@ -1,0 +1,54 @@
+
+            <section class="body">
+                <% if flash[:notice] %>
+                    <div class="alert alert-success" role="alert" > <%= flash[:notice] %> </div>
+                <% end %>                         
+                <h2> Produtos </h2>
+                <table class="table table-ordered table-hover">
+                    <thead>
+                        <tr>
+                            <td>Nome</td>
+                            <td>Descrição</td>
+                            <td>Preço</td>
+                            <td>Quantidade</td>
+                            <td>Ações</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% @produtos.each do |p| %>
+                        <tr>
+                            <td><%= p.nome %></td>
+                            <td><%= p.descricao %></td>
+                            <td><%= p.preco %></td>
+                            <td><%= p.quantidade %></td>
+                            <td> 
+                                <%= button_to "Deletar", p, method: :delete, 
+                                class:"btn btn-sm btn-danger"
+                                 %>
+                            </td>
+                        </tr>
+                    <% end %>
+                    </tbody>
+                </table>
+                <h3 class="alert alert-success"> Produto com desconto</h3>
+                <table class="table table-ordered table-hover">
+                    <thead>
+                        <tr>
+                            <td>Nome</td>
+                            <td>Descrição</td>
+                            <td>Preço</td>
+                            <td>Quantidade</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% @produtos_desconto.each do |p| %>
+                        <tr>
+                            <td><%= p.nome %></td>
+                            <td><%= p.descricao %></td>
+                            <td><%= p.preco %></td>
+                            <td><%= p.quantidade %></td>
+                        </tr>
+                    <% end %>
+                    </tbody>
+                </table>
+            </section>

@@ -1,0 +1,29 @@
+<section class="body">
+    <h2> Produtos </h2>
+    <table class="table table-ordered table-hover">
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Descrição</td>
+                <td>Preço</td>
+                <td>Quantidade</td>
+                <td>Ações</td>
+            </tr>
+        </thead>
+        <tbody>
+        <% @produtos.each do |p| %>
+            <tr>
+                <td><%= p.nome %></td>
+                <td><%= p.descricao %></td>
+                <td><%= p.preco %></td>
+                <td><%= p.quantidade %></td>
+                <td> 
+                    <%= button_to "Deletar", p, method: :delete, 
+                    class:"btn btn-sm btn-danger",
+                    data: {confirm: "Tem certeza que deseja deletar o produto #{p.nome}?"} %>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</section>
